@@ -1,0 +1,1 @@
+cmd.exe /X /C ""C:\Program Files\Java\jdk1.8.0_60\bin\javac.exe" @F:/00_myonly.love/XMCMS/target/classes/org.codehaus.plexus.compiler.javac.JavacCompiler7436750003474798158arguments -J-Xmx1024m -J-Xms512m"

@@ -1,0 +1,7 @@
+.settings
+*.class
+.classpath
+.project
+.DS_Store
+/target
+/xmcms.properties

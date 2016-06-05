@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xm.cms.dao.InfomationDao" >
+  <resultMap id="BaseResultMap" type="com.xm.cms.entity.Infomation" >
+    <id column="memberId" property="memberid" jdbcType="BIGINT" />
+    <result column="gender" property="gender" jdbcType="BIT" />
+    <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+    <result column="degree" property="degree" jdbcType="VARCHAR" />
+    <result column="income" property="income" jdbcType="INTEGER" />
+    <result column="occupation" property="occupation" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="district" property="district" jdbcType="VARCHAR" />
+    <result column="addressLine1" property="addressline1" jdbcType="VARCHAR" />
+    <result column="addressLine2" property="addressline2" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="bornProvince" property="bornprovince" jdbcType="VARCHAR" />
+    <result column="bornCity" property="borncity" jdbcType="VARCHAR" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="height" property="height" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="cretifications" property="cretifications" jdbcType="INTEGER" />
+    <result column="declaration" property="declaration" jdbcType="VARCHAR" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="folder" property="folder" jdbcType="VARCHAR" />
+    <result column="createTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    memberId, gender, nickname, degree, income, occupation, country, province, city, 
+    district, addressLine1, addressLine2, birthday, bornProvince, bornCity, nation, height, 
+    weight, status, cretifications, declaration, avatar, folder, createTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from infomation
+    where memberId = #{memberid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from infomation
+    where memberId = #{memberid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xm.cms.entity.Infomation" >
+    insert into infomation (memberId, gender, nickname, 
+      degree, income, occupation, 
+      country, province, city, 
+      district, addressLine1, addressLine2, 
+      birthday, bornProvince, bornCity, 
+      nation, height, weight, 
+      status, cretifications, declaration, 
+      avatar, folder, createTime
+      )
+    values (#{memberid,jdbcType=BIGINT}, #{gender,jdbcType=BIT}, #{nickname,jdbcType=VARCHAR}, 
+      #{degree,jdbcType=VARCHAR}, #{income,jdbcType=INTEGER}, #{occupation,jdbcType=VARCHAR}, 
+      #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, 
+      #{district,jdbcType=VARCHAR}, #{addressline1,jdbcType=VARCHAR}, #{addressline2,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=TIMESTAMP}, #{bornprovince,jdbcType=VARCHAR}, #{borncity,jdbcType=VARCHAR}, 
+      #{nation,jdbcType=VARCHAR}, #{height,jdbcType=VARCHAR}, #{weight,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{cretifications,jdbcType=INTEGER}, #{declaration,jdbcType=VARCHAR}, 
+      #{avatar,jdbcType=VARCHAR}, #{folder,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xm.cms.entity.Infomation" >
+    insert into infomation
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="memberid != null" >
+        memberId,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="nickname != null" >
+        nickname,
+      </if>
+      <if test="degree != null" >
+        degree,
+      </if>
+      <if test="income != null" >
+        income,
+      </if>
+      <if test="occupation != null" >
+        occupation,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="district != null" >
+        district,
+      </if>
+      <if test="addressline1 != null" >
+        addressLine1,
+      </if>
+      <if test="addressline2 != null" >
+        addressLine2,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="bornprovince != null" >
+        bornProvince,
+      </if>
+      <if test="borncity != null" >
+        bornCity,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+      <if test="height != null" >
+        height,
+      </if>
+      <if test="weight != null" >
+        weight,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="cretifications != null" >
+        cretifications,
+      </if>
+      <if test="declaration != null" >
+        declaration,
+      </if>
+      <if test="avatar != null" >
+        avatar,
+      </if>
+      <if test="folder != null" >
+        folder,
+      </if>
+      <if test="createtime != null" >
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="memberid != null" >
+        #{memberid,jdbcType=BIGINT},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=BIT},
+      </if>
+      <if test="nickname != null" >
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null" >
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null" >
+        #{income,jdbcType=INTEGER},
+      </if>
+      <if test="occupation != null" >
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="addressline1 != null" >
+        #{addressline1,jdbcType=VARCHAR},
+      </if>
+      <if test="addressline2 != null" >
+        #{addressline2,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bornprovince != null" >
+        #{bornprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="borncity != null" >
+        #{borncity,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null" >
+        #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="cretifications != null" >
+        #{cretifications,jdbcType=INTEGER},
+      </if>
+      <if test="declaration != null" >
+        #{declaration,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null" >
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="folder != null" >
+        #{folder,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xm.cms.entity.Infomation" >
+    update infomation
+    <set >
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=BIT},
+      </if>
+      <if test="nickname != null" >
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null" >
+        degree = #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null" >
+        income = #{income,jdbcType=INTEGER},
+      </if>
+      <if test="occupation != null" >
+        occupation = #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null" >
+        district = #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="addressline1 != null" >
+        addressLine1 = #{addressline1,jdbcType=VARCHAR},
+      </if>
+      <if test="addressline2 != null" >
+        addressLine2 = #{addressline2,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="bornprovince != null" >
+        bornProvince = #{bornprovince,jdbcType=VARCHAR},
+      </if>
+      <if test="borncity != null" >
+        bornCity = #{borncity,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null" >
+        height = #{height,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null" >
+        weight = #{weight,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="cretifications != null" >
+        cretifications = #{cretifications,jdbcType=INTEGER},
+      </if>
+      <if test="declaration != null" >
+        declaration = #{declaration,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null" >
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="folder != null" >
+        folder = #{folder,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        createTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where memberId = #{memberid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xm.cms.entity.Infomation" >
+    update infomation
+    set gender = #{gender,jdbcType=BIT},
+      nickname = #{nickname,jdbcType=VARCHAR},
+      degree = #{degree,jdbcType=VARCHAR},
+      income = #{income,jdbcType=INTEGER},
+      occupation = #{occupation,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      district = #{district,jdbcType=VARCHAR},
+      addressLine1 = #{addressline1,jdbcType=VARCHAR},
+      addressLine2 = #{addressline2,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      bornProvince = #{bornprovince,jdbcType=VARCHAR},
+      bornCity = #{borncity,jdbcType=VARCHAR},
+      nation = #{nation,jdbcType=VARCHAR},
+      height = #{height,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      cretifications = #{cretifications,jdbcType=INTEGER},
+      declaration = #{declaration,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      folder = #{folder,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=TIMESTAMP}
+    where memberId = #{memberid,jdbcType=BIGINT}
+  </update>
+</mapper>
